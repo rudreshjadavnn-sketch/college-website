@@ -1,0 +1,152 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Faculty Management{% endblock %}
+
+{% block content %}
+<button class="menu-btn" onclick="toggleSidebar()">
+☰
+</button>
+
+<div class="overlay" onclick="closeSidebar()"></div>
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>College Admin</h2>
+
+        <a href="/admin/dashboard">🏠 Dashboard</a>
+
+        <a href="/admin/forms">📄 Admission Forms</a>
+
+        <a href="/admin/gallery">🖼 Gallery</a>
+
+        <a href="/admin/courses">🎓 Courses</a>
+
+        <a href="/admin/faculty">👨‍🏫 Faculty</a>
+
+        <a href="/admin/logout">🚪 Logout</a>
+
+    </aside>
+
+    <main class="content">
+
+        <h1>Faculty Management</h1>
+
+        <br>
+
+        <form method="POST" enctype="multipart/form-data" class="course-form">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Faculty Name"
+                required>
+
+            <input
+                type="text"
+                name="designation"
+                placeholder="Designation"
+                required>
+
+            <input
+                type="text"
+                name="qualification"
+                placeholder="Qualification"
+                required>
+
+            <input
+                type="text"
+                name="department"
+                placeholder="Department"
+                required>
+
+            <input
+                type="text"
+                name="experience"
+                placeholder="Experience (Example: 10 Years)"
+                required>
+
+            <input
+                type="file"
+                name="image"
+                accept="image/*"
+                required>
+
+            <button type="submit">
+
+                Add Faculty
+
+            </button>
+
+        </form>
+
+        <br><br>
+
+        <table class="table">
+
+            <tr>
+
+                <th>Photo</th>
+
+                <th>Name</th>
+
+                <th>Designation</th>
+
+                <th>Qualification</th>
+
+                <th>Department</th>
+
+                <th>Experience</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            {% for faculty in faculty_list %}
+
+            <tr>
+
+                <td>
+
+                    <img
+                        src="{{ url_for('static', filename=faculty.image_path) }}"
+                        width="80"
+                        height="80"
+                        style="object-fit:cover;border-radius:50%;">
+
+                </td>
+
+                <td>{{ faculty.name }}</td>
+
+                <td>{{ faculty.designation }}</td>
+
+                <td>{{ faculty.qualification }}</td>
+
+                <td>{{ faculty.department }}</td>
+
+                <td>{{ faculty.experience }}</td>
+
+                <td>
+
+                    <a
+                        class="delete-btn"
+                        href="/admin/faculty/delete/{{ faculty.id }}"
+                        onclick="return confirm('Delete this faculty member?')">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </main>
+
+</div>
+
+{% endblock %}

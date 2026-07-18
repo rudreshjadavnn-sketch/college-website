@@ -1,0 +1,131 @@
+{% extends "admin_base.html" %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+<button class="menu-btn" onclick="toggleSidebar()">
+☰
+</button>
+
+<div class="overlay" onclick="closeSidebar()"></div>
+<div class="dashboard">
+
+<aside class="sidebar">
+
+<h2>College Admin</h2>
+
+<a href="/admin/dashboard">🏠 Dashboard</a>
+
+        <a href="/admin/forms">📄 Admission Forms</a>
+
+        <a href="/admin/gallery">🖼 Gallery</a>
+
+        <a href="/admin/courses">🎓 Courses</a>
+
+        <a href="/admin/faculty">👨‍🏫 Faculty</a>
+
+        <a href="/admin/logout">🚪 Logout</a>
+
+
+</aside>
+
+<main class="content">
+
+<h1>Course Management</h1>
+
+<form method="POST" enctype="multipart/form-data" class="course-form">
+
+<input
+type="text"
+name="course_name"
+placeholder="Course Name"
+required>
+
+<input
+type="text"
+name="duration"
+placeholder="Duration"
+required>
+
+<input
+type="text"
+name="fees"
+placeholder="Fees"
+required>
+
+<textarea
+name="description"
+placeholder="Description"></textarea>
+
+<input
+type="file"
+name="image"
+required>
+
+<button type="submit">
+
+Save Course
+
+</button>
+
+</form>
+
+<br><br>
+
+<table class="table">
+
+<tr>
+
+<th>Image</th>
+
+<th>Course</th>
+
+<th>Duration</th>
+
+<th>Fees</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for course in courses %}
+
+<tr>
+
+<td>
+
+<img
+src="{{ url_for('static', filename=course.image_path) }}"
+width="80">
+
+</td>
+
+<td>{{ course.course_name }}</td>
+
+<td>{{ course.duration }}</td>
+
+<td>{{ course.fees }}</td>
+
+<td>
+
+<a
+class="delete-btn"
+href="/admin/course/delete/{{ course.id }}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</main>
+
+</div>
+
+{% endblock %}

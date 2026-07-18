@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+
+<section class="container">
+
+    <div class="gallery-grid">
+
+        {% for image in images %}
+
+        <img
+            src="{{ url_for('static', filename=image.image_path) }}"
+            alt="Gallery Image"
+            onclick="openImage(this.src)">
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- Image Preview -->
+<div id="imageModal" class="image-modal" onclick="closeImage()">
+
+    <span class="close-btn">&times;</span>
+
+    <img id="modalImage">
+
+</div>
+{% endblock %}

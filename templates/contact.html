@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Admission Form{% endblock %}
+
+{% block content %}
+
+<section class="container">
+
+    <div class="form-box">
+
+        <div class="form-header">
+            <h2>Admission Application</h2>
+            <p>Fill out the form below to apply for admission.</p>
+        </div>
+
+        <form method="POST" class="admission-form">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+            </div>
+
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    required>
+            </div>
+
+            <div class="input-group">
+                <label>Select Course</label>
+                <select name="course" required>
+                    <option value="">Choose a Course</option>
+                    <option>BCA</option>
+                    <option>BBA</option>
+                    <option>B.Com</option>
+                    <option>MCA</option>
+                </select>
+            </div>
+
+            <div class="input-group full-width">
+                <label>Address</label>
+                <textarea
+                    name="address"
+                    placeholder="Enter your address"
+                    required></textarea>
+            </div>
+
+            <div class="input-group full-width">
+                <label>Message (Optional)</label>
+                <textarea
+                    name="message"
+                    placeholder="Write your message"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Apply for Admission
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

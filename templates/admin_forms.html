@@ -1,0 +1,93 @@
+{% extends "admin_base.html" %}
+
+{% block title %}
+
+Admission Forms
+
+{% endblock %}
+
+{% block content %}
+<button class="menu-btn" onclick="toggleSidebar()">
+☰
+</button>
+
+<div class="overlay" onclick="closeSidebar()"></div>
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <h2>College Admin</h2>
+
+        <a href="/admin/dashboard">🏠 Dashboard</a>
+
+        <a href="/admin/forms">📄 Admission Forms</a>
+
+        <a href="/admin/gallery">🖼 Gallery</a>
+
+        <a href="/admin/courses">🎓 Courses</a>
+
+        <a href="/admin/faculty">👨‍🏫 Faculty</a>
+
+        <a href="/admin/logout">🚪 Logout</a>
+
+    </aside>
+
+    <main class="content">
+
+        <h1>Admission Forms</h1>
+
+        <table class="table">
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Phone</th>
+
+                <th>Course</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            {% for form in forms %}
+
+            <tr>
+
+                <td>{{ form.id }}</td>
+
+                <td>{{ form.name }}</td>
+
+                <td>{{ form.email }}</td>
+
+                <td>{{ form.phone }}</td>
+
+                <td>{{ form.course }}</td>
+
+                <td>
+
+                    <a
+                    class="delete-btn"
+                    href="/admin/forms/delete/{{ form.id }}">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </main>
+
+</div>
+
+{% endblock %}

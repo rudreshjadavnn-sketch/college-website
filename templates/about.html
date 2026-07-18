@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+About Us
+
+{% endblock %}
+
+{% block content %}
+
+<section class="container">
+
+    <div class="about-box">
+
+    <h2>Welcome to PSSSHE College</h2>
+
+    <p>
+        PSSSHE College is dedicated to providing quality education that empowers
+        students with knowledge, practical skills, and strong ethical values.
+        We strive to create an environment that encourages academic excellence,
+        creativity, innovation, and lifelong learning.
+    </p>
+
+    <p>
+        Our institution offers modern classrooms, well-equipped laboratories,
+        a digital library, experienced faculty members, and advanced learning
+        resources to ensure students receive a comprehensive education. We focus
+        on both theoretical knowledge and practical applications through
+        workshops, seminars, industrial visits, and project-based learning.
+    </p>
+
+    <p>
+        The college promotes research, entrepreneurship, technical skill
+        development, and extracurricular activities that help students become
+        confident professionals and responsible citizens. Students are encouraged
+        to participate in cultural events, sports, NSS, clubs, and community
+        service activities for their overall personality development.
+    </p>
+
+    <p>
+        Our dedicated Placement and Training Cell works closely with leading
+        companies to provide internships, career guidance, soft skills training,
+        aptitude preparation, and campus placement opportunities. Many of our
+        graduates are successfully placed in reputed national and multinational
+        organizations.
+    </p>
+
+    <p>
+        At PSSSHE College, we believe in shaping future leaders by combining
+        academic excellence with innovation, discipline, and industry-oriented
+        education, preparing students to meet the challenges of a rapidly
+        changing world.
+    </p>
+
+</div>
+</section>
+
+<section class="container">
+
+    <h1 style="text-align:center;margin-bottom:40px;">
+
+        Our Faculties
+
+    </h1>
+
+    <div class="faculty-grid">
+
+        {% for faculty in faculty_list %}
+
+        <div class="faculty-card">
+
+            <img
+            src="{{ url_for('static', filename=faculty.image_path) }}"
+            alt="{{ faculty.name }}">
+
+            <h3>{{ faculty.name }}</h3>
+
+            <p><b>{{ faculty.designation }}</b></p>
+
+            <p>{{ faculty.department }}</p>
+
+            <p>{{ faculty.qualification }}</p>
+
+            <p>{{ faculty.experience }}</p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
