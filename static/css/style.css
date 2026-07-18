@@ -40,14 +40,16 @@ nav a:hover{
 }
 
 .hero{
-    height:500px;
+    height:550px;
+    min-height: 100vh;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:#1976d2;
-    color:white;
+    background-image: url("../images/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .hero h1{
@@ -66,19 +68,19 @@ nav a:hover{
     padding:12px 28px;
     border-radius:5px;
     text-decoration:none;
-    font-weight:bold;
+    
 }
 
 .info{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
     padding:60px 8%;
 }
 
 .card{
     background:white;
-    padding:30px;
+    padding:40px;
     border-radius:10px;
     box-shadow:0 5px 15px rgba(0,0,0,.1);
     text-align:center;
@@ -483,7 +485,12 @@ margin-bottom:8px;
 header{
     padding:15px 5%;
 }
-
+.hero{
+background-image: url("../images/mobile-hero.png");
+    background-size: cover;
+    background-position: 10% center;
+    background-repeat: no-repeat;
+}
 .hero h1{
     font-size:40px;
 }
@@ -522,8 +529,12 @@ header{
 
 
 .hero{
-    height:400px;
+    min-height:60vh;
     padding:20px;
+    background-image: url("../images/mobile-hero.png");
+    background-size: cover;
+    background-position: 10% center;
+    background-repeat: no-repeat;
 }
 
 .hero h1{
